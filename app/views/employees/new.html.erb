@@ -4,12 +4,12 @@
 <%= form_tag "/employees", method: :post do %>
   <%= label_tag :first_name %>
   <%= text_field_tag :first_name %>
-
+  <br />
   <%= label_tag :last_name %>
   <%= text_field_tag :last_name %>
-
+  <br />
   <%= label_tag :email %>
   <%= text_field_tag :email %>
-
-  <%= submit_tag %>
+  <br />
+  <%= submit_tag "Create Employee" %>
 <% end %>
