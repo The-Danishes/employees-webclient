@@ -1,7 +1,9 @@
 class EmployeesController < ApplicationController
 
   def show
-    @employee = Unirest.get("#{ENV['API_URL']}/employees/#{params[:id]}.json").body
+    unirest_employee = Unirest.get("#{ENV['API_URL']}/employees/#{params[:id]}.json").body
+
+    @employee = Employee.new(unirest_employee)
   end
 
   def new
