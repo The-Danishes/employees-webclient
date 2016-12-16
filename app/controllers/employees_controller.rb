@@ -5,13 +5,7 @@ class EmployeesController < ApplicationController
   end
 
   def index
-    unirest_employees = Unirest.get("#{ENV['API_URL']}/employees.json").body
-    @employees = []
-
-    unirest_employees.each do |unirest_employee|
-      employee = Employee.new(unirest_employee)
-      @employees << employee
-    end
+    @employees = Employee.all
   end
 
   def new
@@ -28,6 +22,12 @@ class EmployeesController < ApplicationController
 
     # redirect_to "/employees/#{@employee['id']}"
     redirect_to employee_path(@employee["id"])
+  end
+
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to "/employees"
   end
 
 end

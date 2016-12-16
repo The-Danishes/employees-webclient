@@ -8,3 +8,6 @@
 <%= @employee.email %>
 <br />
 <%= @employee.age %> years old
+<br />
+
+<%= link_to "Delete", "/employees/#{@employee.id}", method: :delete %>
